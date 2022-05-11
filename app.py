@@ -31,7 +31,7 @@ def users_handler(username):
     }
     resp, code = fns[request.method](request, username)
     print(resp)
-    return jsonify(resp), code  #UPDATE AND DELETE ROUTE IS BUGGY, IT IS NOT RETURNING A RESPONSE. 
+    return jsonify(resp), code  #DELETE ROUTE IS BUGGY, IT IS NOT RETURNING A RESPONSE. 
 
 @app.errorhandler(exceptions.NotFound)
 def handle_404(err):
