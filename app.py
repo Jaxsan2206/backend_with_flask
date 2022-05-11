@@ -5,7 +5,6 @@ from flask_sqlalchemy import SQLAlchemy
 
 from controllers import users 
 
-
 app = Flask(__name__)
 CORS(app)
 
@@ -31,7 +30,8 @@ def users_handler(username):
         'DELETE': users.destroy
     }
     resp, code = fns[request.method](request, username)
-    return jsonify(resp), code
+    print(resp)
+    return jsonify(resp), code  #UPDATE AND DELETE ROUTE IS BUGGY, IT IS NOT RETURNING A RESPONSE. 
 
 @app.errorhandler(exceptions.NotFound)
 def handle_404(err):
